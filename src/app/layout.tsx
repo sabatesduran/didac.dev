@@ -18,6 +18,7 @@ export default function RootLayout({
 }) {
   const pathname = usePathname();
   const isDev = process.env.NODE_ENV === "development";
+  const noHomeButttonPaths = ["/", "/links"];
 
   return (
     <html lang="en">
@@ -29,7 +30,7 @@ export default function RootLayout({
       )}
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {pathname !== "/" && (
+          {!noHomeButttonPaths.includes(pathname) && (
             <div className="absolute top-3 left-3">
               <Link href="/">
                 <Button variant="outline" size="icon">
