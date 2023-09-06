@@ -1,5 +1,11 @@
 import T from "@/components/typography";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Dídac Sabatés",
+  description: "Full Stack Developer and maker",
+};
 
 export default function Home() {
   return (

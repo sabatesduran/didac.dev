@@ -7,7 +7,6 @@ import Link from "next/link";
 import { Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
-import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,14 +19,6 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <Head>
-        <title>Dídac</title>
-        <meta
-          name="description"
-          content="Full Stack Developer and maker"
-          key="desc"
-        />
-      </Head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {pathname !== "/" && (
