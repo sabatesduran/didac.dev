@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,16 +17,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const isDev = process.env.NODE_ENV === "development";
 
   return (
     <html lang="en">
+      {!isDev && (
+        <Script
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "2148d9da1cbb473c8f74ac25c731d499"}'
+        />
+      )}
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {pathname !== "/" && (
             <div className="absolute top-3 left-3">
               <Link href="/">
                 <Button variant="outline" size="icon">
-                  <Home className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                  <Home className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:rotate-0 dark:scale-100" />
                   <span className="sr-only">Got to homepage</span>
                 </Button>
               </Link>
