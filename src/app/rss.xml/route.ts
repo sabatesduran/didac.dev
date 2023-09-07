@@ -1,6 +1,6 @@
 import Rss from "rss";
-import { getPosts } from "../blog/page";
 import { isDev } from "@/lib/utils";
+import { getPosts } from "@/lib/posts";
 
 const SITE_URL_DEV = "http://localhost:3000";
 const SITE_URL_PROD = "https://didac.dev";
