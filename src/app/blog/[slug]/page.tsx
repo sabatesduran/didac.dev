@@ -1,8 +1,5 @@
 import "@/styles/highlight-js/github-dark.css";
 
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
@@ -15,6 +12,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Metadata } from "next";
+import { getPost, getPostSlugs } from "@/lib/posts";
 
 const mdxOptions = {
   mdxOptions: {
@@ -47,7 +45,7 @@ export default function Post({ params }: any) {
         <div className="flex items-center gap-3">
           <T.Muted>{format(props.frontMatter.date, "dd/MM/yyyy")}</T.Muted>
           <div className="flex gap-1">
-            {props.frontMatter.tags?.split(",").map((tag: string) => (
+            {props.frontMatter.tags?.split(", ").map((tag: string) => (
               <Badge key={tag.trim()} variant={"outline"}>
                 {tag.trim()}
               </Badge>
@@ -60,21 +58,6 @@ export default function Post({ params }: any) {
       </article>
     </>
   );
-}
-
-function getPost({ slug }: { slug: string }) {
-  const markdownFile = fs.readFileSync(
-    path.join("posts", slug + ".mdx"),
-    "utf-8"
-  );
-
-  const { data: frontMatter, content } = matter(markdownFile);
-
-  return {
-    frontMatter,
-    slug,
-    content,
-  };
 }
 
 export async function generateMetadata({ params, searchParams }: any) {
@@ -100,11 +83,5 @@ export async function generateMetadata({ params, searchParams }: any) {
 }
 
 export async function generateStaticParams() {
-  const files = fs.readdirSync(path.join("posts"));
-
-  const paths = files.map((filename) => ({
-    slug: filename.replace(".mdx", ""),
-  }));
-
-  return paths;
+  return getPostSlugs();
 }
