@@ -1,19 +1,16 @@
 import Rss from "rss";
-import { isDev } from "@/lib/utils";
+import { siteURL } from "@/lib/utils";
 import { getPosts } from "@/lib/posts";
 
-const SITE_URL_DEV = "http://localhost:3000";
-const SITE_URL_PROD = "https://didac.dev";
-
 export async function GET() {
-  const siteURL = isDev() ? SITE_URL_DEV : SITE_URL_PROD;
+  const SITE_URL = siteURL();
   const posts = await getPosts();
 
   const feed = new Rss({
     title: "Dídac Sabatés",
     description: "Full Stack Developer and maker",
-    feed_url: `${siteURL}/rss.xml`,
-    site_url: siteURL,
+    feed_url: `${SITE_URL}/rss.xml`,
+    site_url: SITE_URL,
     language: "en",
   });
 
@@ -21,8 +18,8 @@ export async function GET() {
     feed.item({
       title: post.meta.title,
       description: post.meta.description,
-      url: `${siteURL}/blog/${post.slug}`,
-      guid: `${siteURL}/blog/${post.slug}`,
+      url: `${SITE_URL}/blog/${post.slug}`,
+      guid: `${SITE_URL}/blog/${post.slug}`,
       date: post.meta.date,
     });
   });
