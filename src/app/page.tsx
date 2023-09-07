@@ -1,11 +1,12 @@
 import T from "@/components/typography";
+import { generateMetadataForPage } from "@/lib/metadata";
 import { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Dídac Sabatés",
-  description: "Full Stack Developer and maker",
-};
+export const metadata: Metadata = generateMetadataForPage(
+  "Dídac Sabatés",
+  "Full Stack Developer and maker"
+);
 
 export default function Home() {
   return (

@@ -4,11 +4,12 @@ import T from "@/components/typography";
 import { Metadata } from "next";
 import { Rss } from "lucide-react";
 import { getPosts } from "@/lib/posts";
+import { generateMetadataForPage } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Blog - Dídac Sabatés",
-  description: "Probably empty but it's a start",
-};
+export const metadata: Metadata = generateMetadataForPage(
+  "Blog",
+  "Probably empty but it's a start"
+);
 
 export default function Blog() {
   const posts = getPosts();

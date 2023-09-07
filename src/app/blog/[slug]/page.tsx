@@ -11,8 +11,8 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
-import { Metadata } from "next";
 import { getPost, getPostSlugs } from "@/lib/posts";
+import { generateMetadataForPage } from "@/lib/metadata";
 
 const mdxOptions = {
   mdxOptions: {
@@ -60,24 +60,17 @@ export default function Post({ params }: any) {
   );
 }
 
-export async function generateMetadata({ params, searchParams }: any) {
+export async function generateMetadata({ params }: any) {
   const post = getPost(params);
 
-  const meta: Metadata = {
-    title: `${post?.frontMatter?.title} - ${post?.frontMatter?.author}`,
-    description: post?.frontMatter?.description,
-    openGraph: {
-      type: "article",
-    },
-  };
+  const meta = generateMetadataForPage(
+    post?.frontMatter?.title,
+    post?.frontMatter?.description
+  );
 
-  meta.twitter = {
-    card: "summary",
-    site: "@didacsd",
-    creator: "@didacsd",
-    title: post?.frontMatter?.title,
-    description: post?.frontMatter?.description,
-  };
+  meta.openGraph.type = "article";
+  meta.twitter.title = `${post?.frontMatter?.title} - ${post?.frontMatter?.author}`;
+  meta.twitter.title = post?.frontMatter?.description;
 
   return meta;
 }

@@ -9,11 +9,12 @@ import T from "@/components/typography";
 import { Metadata } from "next";
 import { SocialLinksArray } from "@/lib/social-links";
 import { LinkPageItems } from "@/lib/links-data";
+import { generateMetadataForPage } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Links - Dídac Sabatés",
-  description: "Full Stack Developer and maker",
-};
+export const metadata: Metadata = generateMetadataForPage(
+  "Links",
+  "Full Stack Developer and maker"
+);
 
 export default function Links() {
   return (

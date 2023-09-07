@@ -1,8 +1,6 @@
-import { Inter } from "next/font/google";
 import { ImageResponse } from "next/server";
 
 export const runtime = "edge";
-const interScript = Inter({ subsets: ["latin"] });
 
 export async function GET(request: Request) {
   try {
@@ -12,7 +10,7 @@ export async function GET(request: Request) {
     const hasTitle = searchParams.has("title");
     const title = hasTitle
       ? searchParams.get("title")?.slice(0, 100)
-      : "My default title";
+      : "Dídac Sabatés";
 
     const fontData = await fetch(
       new URL("../../styles/fonts/Inter-SemiBold.ttf", import.meta.url)
@@ -30,9 +28,9 @@ export async function GET(request: Request) {
             width: "100%",
             display: "flex",
             flexDirection: "column",
-            backgroundColor: "#3B81F6",
             justifyContent: "space-between",
             color: "#fff",
+            backgroundImage: 'linear-gradient(90deg, rgb(0, 124, 240), rgb(0, 223, 216))',
           }}
         >
           <h1>{title}</h1>
