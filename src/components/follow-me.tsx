@@ -24,12 +24,12 @@ export function FollowMe() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {SocialLinksArray.map((link) => (
-          <DropdownMenuItem key={link.name} className="w-100">
+          <DropdownMenuItem key={link.name}>
             <Link
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2"
+              className="flex flex-grow items-center gap-2"
             >
               {link.icon && <link.icon />} {link.name}
             </Link>
