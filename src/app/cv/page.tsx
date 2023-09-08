@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import T from "@/components/typography";
+import { Navbar } from "@/components/navbar";
 
 export default function CV() {
   const jobs = [
@@ -34,37 +35,40 @@ export default function CV() {
   ];
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between px-10 py-16 md:px-24 md:py-24">
-      <div className="min-w-[50%] flex flex-col">
-        <T.H1>CV</T.H1>
-
-        <section className="py-10">
-          <div className="py-2">
-            {jobs.map((job) => (
-              <Card key={job.company_name} className="mb-3">
-                <CardHeader>
-                  <CardTitle>{job.company_name}</CardTitle>
-                  <CardDescription>
-                    {job.position} (<span className="italic">{job.timespan}</span>)
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
-          <T.P>
-            For more info you can go to my{" "}
-            <Link
-              href="https://www.linkedin.com/in/didacsabates/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline"
-            >
-              LinkedIn
-            </Link>{" "}
-            profile.
-          </T.P>
-        </section>
-      </div>
-    </main>
+    <>
+      <Navbar />
+      <main className="flex min-h-screen flex-col items-center justify-between px-10 py-16 md:px-24 md:py-24">
+        <div className="min-w-[50%] flex flex-col">
+          <T.H1>CV</T.H1>
+          <section className="py-10">
+            <div className="py-2">
+              {jobs.map((job) => (
+                <Card key={job.company_name} className="mb-3">
+                  <CardHeader>
+                    <CardTitle>{job.company_name}</CardTitle>
+                    <CardDescription>
+                      {job.position} (
+                      <span className="italic">{job.timespan}</span>)
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              ))}
+            </div>
+            <T.P>
+              For more info you can go to my{" "}
+              <Link
+                href="https://www.linkedin.com/in/didacsabates/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                LinkedIn
+              </Link>{" "}
+              profile.
+            </T.P>
+          </section>
+        </div>
+      </main>
+    </>
   );
 }
