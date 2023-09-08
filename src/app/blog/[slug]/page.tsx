@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { getPost, getPostSlugs } from "@/lib/posts";
 import { generateMetadataForPage } from "@/lib/metadata";
+import { Navbar } from "@/components/navbar";
 
 const mdxOptions = {
   mdxOptions: {
@@ -35,7 +36,8 @@ export default function Post({ params }: any) {
 
   return (
     <>
-      <article className="prose prose-sm px-4 sm:px-0 md:prose-base lg:prose-lg prose-slate dark:prose-invert py-16 md:py-24 mx-auto">
+      <Navbar />
+      <article className="prose prose-sm px-4 sm:px-0 md:prose-base lg:prose-lg prose-slate dark:prose-invert py-10 mx-auto">
         <Link href="/blog">
           <Button variant="link" className="pl-0">
             <ArrowLeft className="mr-2 h-4 w-4" /> All posts

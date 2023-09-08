@@ -1,9 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { Moon, Sun, SunMoon, UserPlus } from "lucide-react";
-import { useTheme } from "next-themes";
-
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -18,7 +15,7 @@ export function FollowMe() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="gap-2">
+        <Button variant="outline" size="sm" className="gap-2">
           Follow me
         </Button>
       </DropdownMenuTrigger>
