@@ -35,16 +35,16 @@ export default function Post({ params }: any) {
 
   return (
     <>
-      <article className="prose prose-sm md:prose-base lg:prose-lg prose-slate dark:prose-invert py-16 md:py-24 mx-auto">
+      <article className="prose prose-sm px-4 sm:px-0 md:prose-base lg:prose-lg prose-slate dark:prose-invert py-16 md:py-24 mx-auto">
         <Link href="/blog">
           <Button variant="link" className="pl-0">
             <ArrowLeft className="mr-2 h-4 w-4" /> All posts
           </Button>
         </Link>
         <T.H1 className="!mb-0">{props.frontMatter.title}</T.H1>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center flex-wrap gap-3">
           <T.Muted>{format(props.frontMatter.date, "dd/MM/yyyy")}</T.Muted>
-          <div className="flex gap-1">
+          <div className="flex flex-wrap gap-1">
             {props.frontMatter.tags?.split(", ").map((tag: string) => (
               <Badge key={tag.trim()} variant={"outline"}>
                 {tag.trim()}
