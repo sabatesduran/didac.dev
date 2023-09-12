@@ -53,7 +53,7 @@ export default function CV() {
               ))}
             </div>
             <T.P>
-              For more info you can go to my{" "}
+              For more information you can go to my{" "}
               <Link
                 href="https://www.linkedin.com/in/didacsabates/"
                 target="_blank"
