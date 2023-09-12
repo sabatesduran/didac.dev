@@ -6,7 +6,8 @@ import Link from "next/link";
 
 export const metadata: Metadata = generateMetadataForPage(
   "Dídac Sabatés",
-  "Full Stack Developer and maker"
+  "Full Stack Developer and maker",
+  true
 );
 
 export default function Home() {

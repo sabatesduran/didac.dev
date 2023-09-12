@@ -1,11 +1,19 @@
 import { siteURL } from "./utils";
 
-export const generateMetadataForPage = (title: string, description: string) => {
+export const generateMetadataForPage = (
+  title: string,
+  description: string,
+  titleAbsolute: boolean = false
+) => {
+  const titleData = titleAbsolute
+    ? { absolute: "Dídac Sabatés" }
+    : {
+        template: "%s | Dídac Sabatés",
+        default: "Dídac Sabatés",
+      };
+
   return {
-    title: {
-      template: "%s | Dídac Sabatés",
-      default: "Dídac Sabatés",
-    },
+    title: titleData,
     description: description,
     themeColor: [
       { media: "(prefers-color-scheme: light)", color: "#fffff" },
