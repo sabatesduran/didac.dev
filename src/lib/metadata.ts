@@ -7,7 +7,7 @@ export const generateMetadataForPage = (
   const defaultTitle = "Dídac Sabatés";
   const composedTitle = title ? `${title} | Dídac Sabatés` : defaultTitle;
   return {
-    title: title,
+    title: composedTitle,
     description: description,
     themeColor: [
       { media: "(prefers-color-scheme: light)", color: "#fffff" },
