@@ -4,8 +4,9 @@ export const generateMetadataForPage = (
   title: string = "",
   description: string = "Full Stack Developer and maker"
 ) => {
+  const defaultTitle = "Dídac Sabatés";
   return {
-    title: { template: "%s | Dídac Sabatés", default: "Dídac Sabatés" },
+    title: { template: "%s | Dídac Sabatés", default: defaultTitle },
     description: description,
     themeColor: [
       { media: "(prefers-color-scheme: light)", color: "#fffff" },
@@ -15,12 +16,14 @@ export const generateMetadataForPage = (
       title,
       description: description,
       url: siteURL(),
-      siteName: "Dídac Sabatés",
+      siteName: defaultTitle,
       locale: "en_US",
       type: "website",
       images: [
         {
-          url: `${siteURL()}/og?title=${encodeURIComponent(title)}`,
+          url: `${siteURL()}/og?title=${encodeURIComponent(
+            title ? title : defaultTitle
+          )}`,
           width: 1200,
           height: 630,
           alt: "",
@@ -32,7 +35,9 @@ export const generateMetadataForPage = (
       description: description,
       card: "summary_large_image",
       creator: "@didacsd",
-      image: `${siteURL()}/og?title=${encodeURIComponent(title)}`,
+      image: `${siteURL()}/og?title=${encodeURIComponent(
+        title ? title : defaultTitle
+      )}`,
     },
     icons: {
       shortcut: `${siteURL()}/favicons/favicon.ico`,
