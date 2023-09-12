@@ -4,11 +4,7 @@ import { generateMetadataForPage } from "@/lib/metadata";
 import { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = generateMetadataForPage(
-  "Dídac Sabatés",
-  "Full Stack Developer and maker",
-  true
-);
+export const metadata: Metadata = generateMetadataForPage();
 
 export default function Home() {
   return (

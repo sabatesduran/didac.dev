@@ -11,10 +11,7 @@ import { SocialLinksArray } from "@/lib/social-links";
 import { LinkPageItems } from "@/lib/links-data";
 import { generateMetadataForPage } from "@/lib/metadata";
 
-export const metadata: Metadata = generateMetadataForPage(
-  "Links",
-  "Full Stack Developer and maker"
-);
+export const metadata: Metadata = generateMetadataForPage("Links");
 
 export default function Links() {
   return (

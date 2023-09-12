@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import {
   Card,
@@ -7,6 +8,12 @@ import {
 } from "@/components/ui/card";
 import T from "@/components/typography";
 import { Navbar } from "@/components/navbar";
+import { generateMetadataForPage } from "@/lib/metadata";
+
+export const metadata: Metadata = generateMetadataForPage(
+  "CV",
+  "Working experience"
+);
 
 export default function CV() {
   const jobs = [

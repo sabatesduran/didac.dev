@@ -1,26 +1,18 @@
 import { siteURL } from "./utils";
 
 export const generateMetadataForPage = (
-  title: string,
-  description: string,
-  titleAbsolute: boolean = false
+  title: string = "",
+  description: string = "Full Stack Developer and maker"
 ) => {
-  const titleData = titleAbsolute
-    ? { absolute: "Dídac Sabatés" }
-    : {
-        template: "%s | Dídac Sabatés",
-        default: "Dídac Sabatés",
-      };
-
   return {
-    title: titleData,
+    title: { template: "%s | Dídac Sabatés", default: "Dídac Sabatés" },
     description: description,
     themeColor: [
       { media: "(prefers-color-scheme: light)", color: "#fffff" },
       { media: "(prefers-color-scheme: dark)", color: "#020817" },
     ],
     openGraph: {
-      title: `${title} | Dídac Sabatés`,
+      title,
       description: description,
       url: siteURL(),
       siteName: "Dídac Sabatés",
@@ -37,8 +29,10 @@ export const generateMetadataForPage = (
     },
     twitter: {
       title: `${title} | Dídac Sabatés`,
+      description: description,
       card: "summary_large_image",
       creator: "@didacsd",
+      image: `${siteURL()}/og?title=${encodeURIComponent(title)}`,
     },
     icons: {
       shortcut: `${siteURL()}/favicons/favicon.ico`,
