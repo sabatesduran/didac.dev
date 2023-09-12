@@ -5,15 +5,16 @@ export const generateMetadataForPage = (
   description: string = "Full Stack Developer and maker"
 ) => {
   const defaultTitle = "Dídac Sabatés";
+  const composedTitle = title ? `${title} | Dídac Sabatés` : defaultTitle;
   return {
-    title: { template: "%s | Dídac Sabatés", default: defaultTitle },
+    title: title,
     description: description,
     themeColor: [
       { media: "(prefers-color-scheme: light)", color: "#fffff" },
       { media: "(prefers-color-scheme: dark)", color: "#020817" },
     ],
     openGraph: {
-      title: title ? `${title} | Dídac Sabatés` : defaultTitle,
+      title: composedTitle,
       description: description,
       url: siteURL(),
       siteName: defaultTitle,
@@ -31,7 +32,7 @@ export const generateMetadataForPage = (
       ],
     },
     twitter: {
-      title: title ? `${title} | Dídac Sabatés` : defaultTitle,
+      title: composedTitle,
       description: description,
       card: "summary_large_image",
       creator: "@didacsd",
