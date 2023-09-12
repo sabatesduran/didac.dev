@@ -13,7 +13,7 @@ export const generateMetadataForPage = (
       { media: "(prefers-color-scheme: dark)", color: "#020817" },
     ],
     openGraph: {
-      title: `${title} | Dídac Sabatés`,
+      title: title ? `${title} | Dídac Sabatés` : defaultTitle,
       description: description,
       url: siteURL(),
       siteName: defaultTitle,
@@ -31,7 +31,7 @@ export const generateMetadataForPage = (
       ],
     },
     twitter: {
-      title: `${title} | Dídac Sabatés`,
+      title: title ? `${title} | Dídac Sabatés` : defaultTitle,
       description: description,
       card: "summary_large_image",
       creator: "@didacsd",
