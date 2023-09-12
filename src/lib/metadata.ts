@@ -13,7 +13,7 @@ export const generateMetadataForPage = (
       { media: "(prefers-color-scheme: dark)", color: "#020817" },
     ],
     openGraph: {
-      title,
+      title: `${title} | Dídac Sabatés`,
       description: description,
       url: siteURL(),
       siteName: defaultTitle,
