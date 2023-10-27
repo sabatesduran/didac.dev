@@ -18,6 +18,11 @@ export const metadata: Metadata = generateMetadataForPage(
 export default function CV() {
   const jobs = [
     {
+      company_name: "Abacum",
+      position: "Full Stack Engineer",
+      timespan: "Oct 2023 - Present",
+    },
+    {
       company_name: "Verse",
       position: "Full Stack Developer",
       timespan: "Jun 2019 - Jul 2023",
