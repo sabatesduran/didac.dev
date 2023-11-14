@@ -15,6 +15,10 @@ export const LinkPageItems: LinkPageItem[] = [
     url: Printables.url,
   },
   {
+    name: "Espía Gasolineras",
+    url: "https://espiagasolineras.com",
+  },
+  {
     name: "CV",
     url: "https://didac.dev/cv",
   },
