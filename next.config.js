@@ -20,6 +20,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/twitter',
+        destination: 'https://x.com/didacsd',
+        permanent: true,
+      },
+      {
         source: '/github',
         destination: 'https://github.com/sabatesduran',
         permanent: true,
