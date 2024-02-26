@@ -45,7 +45,7 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/espiagasolineras',
+        source: '/eg',
         destination: 'https://espiagasolineras.com',
         permanent: true,
       },
