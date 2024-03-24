@@ -10,6 +10,7 @@ export const Github: LinkPageItem = {
 export const X: LinkPageItem = {
   name: "X",
   url: "https://x.com/didacsd",
+  handle: "@didacsd",
   icon: TwitterIcon,
 };
 

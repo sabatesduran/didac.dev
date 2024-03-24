@@ -7,13 +7,13 @@ import langPython from "highlight.js/lib/languages/python";
 import Headings from "@/components/mdx/Headings";
 import T from "@/components/typography";
 import format from "date-fns/format";
-import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { getPost, getPostSlugs } from "@/lib/posts";
 import { generateMetadataForPage } from "@/lib/metadata";
 import { Navbar } from "@/components/navbar";
+import { SocialLinks } from "@/lib/social-links";
 
 const mdxOptions = {
   mdxOptions: {
@@ -46,17 +46,16 @@ export default function Post({ params }: any) {
         <T.H1 className="!mb-0">{props.frontMatter.title}</T.H1>
         <div className="flex items-center flex-wrap gap-3">
           <T.Muted>{format(props.frontMatter.date, "dd/MM/yyyy")}</T.Muted>
-          <div className="flex flex-wrap gap-1">
-            {props.frontMatter.tags?.split(", ").map((tag: string) => (
-              <Badge key={tag.trim()} variant={"outline"}>
-                {tag.trim()}
-              </Badge>
-            ))}
-          </div>
         </div>
 
         {/* @ts-ignore */}
         <MDXRemote source={props.content} options={mdxOptions} components={components} />
+
+        <div className="italic">
+          <hr className="!mt-20 !mb-8" />I hope it was a nice reading if you
+          (not) liked, let me know{" "}
+          <a href={SocialLinks.x.url}>{SocialLinks.x.handle}</a>.
+        </div>
       </article>
     </>
   );

@@ -1,0 +1,35 @@
+---
+title: A gas station price spy that costs 1$/month to mantain
+description: Kind of a silly project that ended up being cool to build
+author: Dídac Sabatés
+tags: coding, gas, website, project, car, motorcycle, gas station, station, road, spain
+date: 2023-12-01
+published: false
+---
+
+Between jobs this summer I talked to a friend about how gas is super expensive right now and he told me that he checked this [website](https://geoportalgasolineras.es/geoportal-instalaciones/Inicio) to find the cheapest gas station nearest to him, apart from the design being was quite old the website is useful, but then I realized that they have an API and a `.xlsx` that it's updated with new prices every hour. Inmmidiatelly, 💡, I tought would be nice to find a way to make a simpler design and mobile friendly so I can use it on the go.
+
+So, next day I opened my laptop and start thinking on how i want to build this and since it will be a pet project it should cost me as little as possible (will let you knwo how much it cost per month to run this website).
+
+## How to get the data?
+
+Beign dev minded I thought, okay, they have an API so, will be easy to get the responses I need from it, but obiously they don't have a way to query the url for coordinates (if we need to find the closest to us we need the location of the user). So best option will be downloading the data every hour on as excel file, lucky for me they don't change the [url](https://geoportalgasolineras.es/geoportal/resources/files/preciosEESS_es.xls
+) of that file, so no scrapping needed.
+
+## Where do I save the data?
+
+Databases are one of this things that you need if you want to query the data but at the same time could be a thing that will cost money, so after some research I found that [Supabase](https://supabase.com) will be my best option, I have auth and a database all in the same roof plus it's free up to certain limits and TBH I don't think a lot of people will use it 😅.
+
+## How do I save it?
+
+I can't query an .xlsx directly but that file is not normalized at all, a lot of the names are written in all caps others don't and it was a bit of a mess, so i've decided to write a script that can normalize that data, so using python and pandas I managed to normalize the data so it shows up on the website in a decent way.
+
+New problem araises! there's no unique id's for each gas station, so basically I grab all the fields that do not change (at least i think the don't change 😅), combine them and generate a hash, that way on every run we will know if the gas station exist or not.
+
+## Where do I run this CronJob?
+
+Also another thing that cost money and could be fix by having for example a Raspberry Pi or any computer at your home do it, but I don't want to have a computer running just for this so in the end I've decided to use a service, on my machine the script takes 11 minutes or so to execute (I think it was something about running the inserts and updates in local, but I'm not sure) so I thought that will be like using a 5$ droplet in DigitalOcean, but then I saw that Render has CronJobs as a service and for a good price so I put it there to test it out, turns out that when I run it there the execution time was down to a bit more than a minute, after all the executions that I will do, 1 every hour (since the document is updated in this frequency) the total cost of running it monthly is 1$ and it's like this because this is the minimum that they can change, if not will be less that 70 cents.
+
+## Website
+
+What to use? What you know already, user the template from supabase with nextjs with shad/ui and host it on Vercel for free!
