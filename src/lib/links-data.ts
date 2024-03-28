@@ -17,10 +17,12 @@ export const LinkPageItems: LinkPageItem[] = [
   },
   {
     name: "hipotec.app",
+    description: "Spanish mortgage simulator",
     url: "https://hipotec.app",
   },
   {
     name: "Espía Gasolineras",
+    description: "Find the cheapest gas station near you in Spain",
     url: "https://espiagasolineras.com",
   },
   {
