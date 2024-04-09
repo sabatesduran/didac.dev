@@ -20,7 +20,7 @@ export default function CV() {
     {
       company_name: "Abacum",
       position: "Full Stack Engineer",
-      timespan: "Oct 2023 - Present",
+      timespan: "Oct 2023 - Apr 2024",
     },
     {
       company_name: "Verse",
