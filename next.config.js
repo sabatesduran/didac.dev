@@ -49,6 +49,11 @@ const nextConfig = {
         destination: 'https://espiagasolineras.com',
         permanent: true,
       },
+      {
+        source: '/qrforge',
+        destination: 'https://qrforge.didac.dev',
+        permanent: true,
+      },
     ]
   },
 };

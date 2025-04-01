@@ -26,6 +26,10 @@ export const LinkPageItems: LinkPageItem[] = [
     url: "https://espiagasolineras.com",
   },
   {
+    name: "QR Forge",
+    url: "https://qrforge.didac.dev",
+  },
+  {
     name: "CV",
     url: "https://didac.dev/cv",
   },
