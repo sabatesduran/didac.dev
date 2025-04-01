@@ -27,6 +27,7 @@ export const LinkPageItems: LinkPageItem[] = [
   },
   {
     name: "QR Forge",
+    description: "Generate QR codes for free",
     url: "https://qrforge.didac.dev",
   },
   {
