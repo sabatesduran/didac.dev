@@ -6,9 +6,6 @@ const withRemoteRefresh = require("next-remote-refresh")({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    mdxRs: true,
-  },
   images: {
     domains: ["source.unsplash.com"],
   },
