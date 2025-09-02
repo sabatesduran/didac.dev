@@ -15,7 +15,7 @@ export default function Home() {
           <T.H1 className="place-items-center">Dídac Sabatés</T.H1>
           <T.P>
             Full Stack Engineer from Barcelona currently working at{" "}
-            <span className="font-bold">Abacum</span>{" "}
+            <span className="font-bold">Pensero AI</span>{" "}
             (look{" "}
             <Link href="/cv" className="underline">
               here
